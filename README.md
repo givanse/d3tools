@@ -1,7 +1,7 @@
 d3tools
 =======
 
-## [Try it now](http://givanse.github.io/d3tools/)
+## [Try it now](http://givanse.github.io/d3tools/hunt)
 
 ## How to use
  * Download the file `hunt.html`
