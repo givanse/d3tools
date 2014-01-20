@@ -18,6 +18,12 @@
         	div.achievement h2 {
         		color: #D59428;
         	}
+        	div.sc, div.hc {
+        		display: block;
+        	}
+        	div.sc-hidden, div.hc-hidden {
+        		display: none;
+        	}
 
         	/* table styles */
         	table {
@@ -81,7 +87,7 @@
         	}
         	/* controls */
         	#controls {
-        		max-width: 600px;
+        		max-width: 800px;
         		margin: auto;
         		background-color: #200000;
         		text-align: center;
@@ -92,6 +98,13 @@
         	}
         	#controls button {
         		cursor: pointer;
+        	}
+        	#controls .group {
+        		border: 1px solid #5E0000;
+        		border-radius: 2px;
+        		padding: 4px;
+        		margin: 4px 8px;
+        		display: inline;
         	}
 
         	label {
@@ -108,17 +121,28 @@
 <body>
 
 	<div id="controls">
-		<label>Act I</label>
-		<input type="checkbox" name="actI" onclick="toggle_act(this);" checked>
-		<label>Act II</label>
-		<input type="checkbox" name="actII" onclick="toggle_act(this);" checked>
-		<label>Act III</label>
-		<input type="checkbox" name="actIII" onclick="toggle_act(this);" checked>
-		<label>Act IV</label>
-		<input type="checkbox" name="actIV" onclick="toggle_act(this);" checked>
+		<div class="group">
+			<label>Act I</label>
+			<input type="checkbox" name="actI" onclick="toggle_act(this);" checked>
+			<label>Act II</label>
+			<input type="checkbox" name="actII" onclick="toggle_act(this);" checked>
+			<label>Act III</label>
+			<input type="checkbox" name="actIII" onclick="toggle_act(this);" checked>
+			<label>Act IV</label>
+			<input type="checkbox" name="actIV" onclick="toggle_act(this);" checked>
+		</div>
 
-		<button name="clean slate" onclick="mark_all(false);">clean slate</button>
-		<button name="all done" onclick="mark_all(true);">all done</button>
+		<div class="group">
+			<label>SC</label>
+			<input type="checkbox" name="sc" onclick="toggle_difficulty(this);" checked>
+			<label>HC</label>
+			<input type="checkbox" name="hc" onclick="toggle_difficulty(this);" checked>
+		</div>
+
+		<div class="group">
+			<button name="clean slate" onclick="mark_all(false);">clean slate</button>
+			<button name="all done" onclick="mark_all(true);">all done</button>
+		</div>
 	</div>
 
 	<!--
@@ -128,7 +152,7 @@
 		Kill all of the following unique enemies.
 
 	-->
-	<div class="achievement">
+	<div class="achievement sc">
 		<h2>A Unique Collection</h2>
 		<label>Act I</label><br>
 		<table id="a_unique_collection_aI" class="actI">
@@ -1005,7 +1029,7 @@
 
 	-->
 
-	<div class="achievement">
+	<div class="achievement hc">
 		<h2>Trophy Hunting</h2>
 
 		<label>Act I</label><br>
@@ -1215,7 +1239,7 @@
 					<a class="place-name" title="Cathedral Level 4">Cathedral Level 4</a><br>
 					<a class="place-name" title="The Royal Crypts">The Royal Crypts</a><br>
 					<a class="place-name" title="Development Hell">Development Hell</a><br>
-					<a class="place-name" title="Fields of Misery"
+					<a class="place-name" title="Fields of Misery">
 					Fields of Misery</a>
 				</td></tr>
 
@@ -1942,7 +1966,7 @@
 
 	-->
 
-	<div class="achievement">
+	<div class="achievement hc">
 		
 		<h2>We are the champions</h2>
 
@@ -2859,10 +2883,10 @@
 	</div><!-- we are the champions -->
 
 	<script type="text/javascript">
-		function toggle_act(input_node) {
-    		var visible_t = input_node.name;
-    		var hidden_t = input_node.name + '-hidden';
-			if(input_node.checked) {
+		function toggle_act(checkbox) {
+    		var visible_t = checkbox.name;
+    		var hidden_t = checkbox.name + '-hidden';
+			if(checkbox.checked) {
     			/* checked */ 
     			var searchClass = hidden_t;
     			var applyClass = visible_t;
@@ -2898,6 +2922,28 @@
     		nodeArray.forEach( function(value) {
     				value.className = applyClass;
 				} );
+    	}
+
+    	function toggle_difficulty(checkbox) {
+    		var visible_dif = checkbox.name;
+    		var hidden_dif = checkbox.name + '-hidden';
+
+    		if(checkbox.checked) {
+    			/* checked */ 
+    			var searchClass = hidden_dif;
+    			var applyClass = visible_dif;
+    		} else { 
+    			/* un-checked */
+    			var searchClass = visible_dif;
+    			var applyClass = hidden_dif;
+    		}
+    		applyClass += " achievement";
+
+    		var nodeList = document.getElementsByClassName(searchClass);
+    		var nodeArray = [].slice.call(nodeList);
+    		nodeArray.forEach( function(value) {
+    				value.className = applyClass;
+				} );	
     	}
 
 		var searchClass = "enemy-links";
