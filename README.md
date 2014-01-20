@@ -1,6 +1,8 @@
 d3tools
 =======
 
+## [Try it now](http://givanse.github.io/d3tools/)
+
 ## How to use
  * Download the file `hunt.html`
  * Click on the names of the monsters to mark or un-mark them as done.
