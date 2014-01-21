@@ -1,6 +1,8 @@
 d3tools
 =======
 
+Quickly check who should you be looking for in each area of the game.
+
 ## [Try it now](http://givanse.github.io/d3tools/hunt)
 
 ## How to use
