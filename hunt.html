@@ -121,6 +121,19 @@
 <body>
 
 	<div id="controls">
+
+		<div class="group">
+			<button name="clean slate" onclick="mark_all(false);">clean slate</button>
+			<button name="all done" onclick="mark_all(true);">all done</button>
+		</div>
+
+		<div class="group">
+			<label>SC</label>
+			<input type="checkbox" name="sc" onclick="toggle_difficulty(this);" checked>
+			<label>HC</label>
+			<input type="checkbox" name="hc" onclick="toggle_difficulty(this);" checked>
+		</div>
+
 		<div class="group">
 			<label>Act I</label>
 			<input type="checkbox" name="actI" onclick="toggle_act(this);" checked>
@@ -133,15 +146,9 @@
 		</div>
 
 		<div class="group">
-			<label>SC</label>
-			<input type="checkbox" name="sc" onclick="toggle_difficulty(this);" checked>
-			<label>HC</label>
-			<input type="checkbox" name="hc" onclick="toggle_difficulty(this);" checked>
-		</div>
-
-		<div class="group">
-			<button name="clean slate" onclick="mark_all(false);">clean slate</button>
-			<button name="all done" onclick="mark_all(true);">all done</button>
+			<button name="save" onclick="alert('\'right click\' on the page & click \'Save as...\'');">
+				save progress
+			</button>
 		</div>
 	</div>
 
@@ -362,7 +369,7 @@
 					Leoric's Manor Courtyard</a>
 				</td></tr>
 
-				<tr>
+				<tr class="done">
 				<td class="enemy">
 					<a class="enemy-name" onclick="toggle_objective(this);" title="Jezeb the Conjuror">
 					Jezeb the Conjuror</a> 
@@ -2204,7 +2211,7 @@
 					The Unknown Depths</a>
 				</td></tr>
 
-				<tr>
+				<tr class="done">
 				<td class="enemy">
 					<a class="enemy-name" onclick="toggle_objective(this);" title="Deathly Haunt">
 					Deathly Haunt</a>
@@ -2230,8 +2237,8 @@
 					Fallen Cur</a>
 				</td>
 				<td class="enemy-links">JS filled</td>
-				<td> <a class="place-name" title="Dahlgur Oasis">Dahlgur Oasis</a><br>
-					<a class="place-name" title="Ancient Path">Ancient Path</a><br>
+				<td> <a class="place-name" title="Dahlgur Oasis"><del>Dahlgur Oasis</del></a><br>
+					<a class="place-name" title="Ancient Path"><del>Ancient Path</del></a><br>
 					<a class="place-name" title="The Storm Halls">
 					The Storm Halls</a> (Fallen theme)
 				</td></tr>
@@ -2319,7 +2326,7 @@
 					Ruined Cistern</a>
 				</td></tr>
 
-				<tr>
+				<tr class="done">
 				<td class="enemy">
 					<a class="enemy-name" onclick="toggle_objective(this);" title="Reaper">
 					Reaper</a>
