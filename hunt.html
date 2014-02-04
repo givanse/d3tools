@@ -1,0 +1,3785 @@
+<!DOCTYPE html>
+<head>
+    <meta charset='utf-8'>
+    <meta name="description" content="list of enemies locations">
+    <meta name="keywords" content="diablo 3, achievements, progress">
+    <meta name="author" content="givan.se">
+    
+    <title>Achievements :: Hunt</title>
+    
+    <style type="text/css">
+        	body {
+		        background-color: #360000;
+        	}
+        	div.achievement {
+        		float: left;
+        		padding: 0px 7px;
+        		border: 1px solid #440000;
+        		border-width: 3px 1px;
+        		border-radius: 50px;
+        		margin: 7px 0px;
+        		text-align: center;
+        		padding-bottom: 40px;
+        	}
+        	div.achievement h2 {
+        		color: #B88025;
+        	}
+        	div.sc, div.hc {
+        		display: block;
+        	}
+        	div.sc-hidden, div.hc-hidden {
+        		display: none;
+        	}
+        	label {
+        		font-size: 1.2em;
+        		color: #A64B00;
+	        }
+
+        	/* table styles */
+        	table {
+        		color: #A18E73;
+        		background-color: #200000;
+        		border-collapse: collapse;
+        		margin: auto;
+        	}
+        	table th {
+        		background-color: #1D0000;
+        		color: #A64B00;
+        	}
+        	tr.done {
+        		opacity: 0.3;
+        		font-size: 0.6em;
+        	}
+        	table td {
+        		border: 1px solid #360000;
+        		padding: 5px;
+        		font-size: 1.1em;
+        	}
+
+        	/* enemy */
+        	table td.enemy {
+        		border-right: 0px;
+        	}
+        	table td a.enemy-name {
+        		color: #FFAA00;
+        	}
+        	table td a.place-name {
+        		color: #A08246;
+        	}
+        	table td a.enemy-name {
+        		cursor: pointer;
+        	}
+        	table td.enemy-links {
+        		border-left: 0px;
+        	}
+        	table td.enemy-links a {
+        		font-size: 0.5em;
+        		text-decoration: none;
+        		padding: 0px 4px;
+        		border: 1px solid #101010;
+        		border-radius: 3px;
+        		margin: 0px 2px;
+        	}
+        	table td.enemy-links a.google_link {
+        		color: white;
+        		background-color: #0266C8;
+        		
+        	}
+        	table td.enemy-links a.d3db_link {
+        		color: #D59428;
+        		background-color: #6B0000;
+        	}
+
+        	/* table display */
+        	table.actI, table.actII, table.actIII, table.actIV {
+        		display: table;
+        	}
+        	table.actI-hidden, table.actII-hidden, 
+        	table.actIII-hidden, table.actIV-hidden {
+        		display: none;
+        	}
+        	/**
+        	 * Controls 
+        	 */
+        	#controls {
+        		max-width: 800px;
+        		margin: auto;
+        		background-color: #200000;
+        		text-align: center;
+        		border-radius: 6px;
+        		padding: 6px;
+        	}
+        	#controls .group {
+        		border: 1px solid #5E0000;
+        		border-radius: 6px;
+        		padding: 10px 6px;
+        		margin: 2px 8px;
+        		display: inline-block;
+        	}
+        	input[type='checkbox'] {
+        		width: 1.2em;
+        		height: 1.2em;
+        	}
+        	button {
+        		cursor: pointer;
+        	}
+    </style>
+
+    <script type="text/javascript">
+    	
+    </script>
+</head>
+
+<body>
+
+	<div id="controls">
+
+		<button name="clean slate" onclick="mark_all(false);">clean slate</button>
+		<button name="all done" onclick="mark_all(true);">all done</button>
+
+		<div class="group">
+			<label>SC</label>
+			<input type="checkbox" name="sc" onclick="toggle_difficulty(this);" checked>
+			<label>HC</label>
+			<input type="checkbox" name="hc" onclick="toggle_difficulty(this);" checked>
+		</div>
+
+		<div class="group">
+			<label>Act I</label>
+			<input type="checkbox" name="actI" onclick="toggle_act(this);" checked>
+			<label>Act II</label>
+			<input type="checkbox" name="actII" onclick="toggle_act(this);" checked>
+			<label>Act III</label>
+			<input type="checkbox" name="actIII" onclick="toggle_act(this);" checked>
+			<label>Act IV</label>
+			<input type="checkbox" name="actIV" onclick="toggle_act(this);" checked>
+		</div>
+
+		<button name="save" onclick="alert('\'right click\' on the page & click \'Save as...\'');">
+				save progress
+		</button>
+		
+	</div>
+
+	<!--
+	##########################################################################
+		A Unique Collection
+
+		Kill all of the following unique enemies.
+	##########################################################################
+	-->
+	<div class="achievement sc">
+		<h2>A Unique Collection</h2>
+		<label>Act I</label><br>
+		<table id="a_unique_collection_aI" class="actI">
+
+			<thead>
+				<tr><th> Monster</th><th></th><th> Location</th></tr>
+			</thead>
+
+			<tbody>
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Ebenezer Samuel">
+					Ebenezer Samuel</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Old Tristram Road">
+					Old Tristram Road</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Ragus Grimlow">
+					Ragus Grimlow</a>
+					 </td> <td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cathedral Level 1">
+					Cathedral Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Mange">
+					Mange</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Weeping Hollow">
+					The Weeping Hollow</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Lucious the Depraved">
+					Lucious the Depraved</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cemetery of the Forsaken">
+					Cemetery of the Forsaken</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Drury Brown">
+					Drury Brown</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Defiled Crypt">
+					Defiled Crypt</a> <i>(Real version)</i>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Cudgelarm">
+					Cudgelarm</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cathedral Level 2">
+					Cathedral Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Firestarter">
+					Firestarter</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cathedral Level 2">
+					Cathedral Level 2</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Merrium Skullthorn">
+					Merrium Skullthorn</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cathedral Level 2">
+					Cathedral Level 2</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Bellybloat the Scarred">
+					Bellybloat the Scarred</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cathedral Level 4">
+					Cathedral Level 4</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Captain Cage">
+					Captain Cage</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cathedral Level 4">
+					Cathedral Level 4</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Dreadclaw the Leaper">
+					Dreadclaw the Leaper</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Fields of Misery">
+					Fields of Misery</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fecklar's Ghost">
+					Fecklar's Ghost</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Festering Woods">
+					The Festering Woods</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Qurash the Reviled">
+					Qurash the Reviled</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Caverns of Araneae">
+					Caverns of Araneae</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Rathlin the Widowmaker">
+					Rathlin the Widowmaker</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Caverns of Araneae">
+					Caverns of Araneae</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Venimite">
+					Venimite</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Caverns of Araneae">
+					Caverns of Araneae</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Zhelobb the Venomous">
+					Zhelobb the Venomous</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Caverns of Araneae">
+					Caverns of Araneae</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Logrut the Warrior">
+					Logrut the Warrior</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Highlands Crossing">Highlands Crossing</a><br>
+					<a class="place-name" title="Southern Highlands">
+					Southern Highlands</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy"> 
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Lorzak the Powerful">
+					Lorzak the Powerful</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Southern Highlands">
+					Southern Highlands</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Red Rock">
+					Red Rock</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Southern Highlands">
+					Southern Highlands</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Sarella the Vile">
+					Sarella the Vile</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Leoric's Manor Courtyard">
+					Leoric's Manor Courtyard</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Jezeb the Conjuror">
+					Jezeb the Conjuror</a> 
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Leoric's Manor">
+					Leoric's Manor</a>
+				</td></tr>
+			</tbody>
+		</table>
+
+		<label>Act II</label><br>
+		<table class="actII">
+
+			<thead>
+				<tr><th> Monster</th><th></th><th> Location</th></tr>
+			</thead>
+
+			<tbody>
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Saha the Slasher">
+					Saha the Slasher</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Howling Plateau">
+					Howling Plateau</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Gart the Mad">
+					Gart the Mad</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Howling Plateau">
+					Howling Plateau</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Ashek">
+					Ashek</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Black Canyon Mines">
+					Black Canyon Mines</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Razormouth">
+					Razormouth</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Black Canyon Mines">
+					Black Canyon Mines</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Beyatt">
+					Beyatt</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Stinging Winds">Stinging Winds</a><br>
+					<a class="place-name" title="The Lost Caravan">
+					The Lost Caravan</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Yeth">
+					Yeth</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Road to Alcarnus">
+					Road to Alcarnus</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="High Cultist Murdos">
+					High Cultist Murdos</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Alcarnus">
+					Alcarnus</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Sammash">
+					Sammash</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Alcarnus">
+					Alcarnus</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Shondar the Invoker">
+					Shondar the Invoker</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Alcarnus">
+					Alcarnus</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Hazzor the Viper">
+					Hazzor the Viper</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Sewers of Caldeum">
+					Sewers of Caldeum</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Torsar">
+					Torsar</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Dahlgur Oasis">
+					Dahlgur Oasis</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Otzi the Cursed">
+					Otzi the Cursed</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Eastern Channel">
+					Eastern Channel</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Stinging Death Swarm">
+					Stinging Death Swarm</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Eastern Channel">Eastern Channel</a><br>
+					<a class="place-name" title="Western Channel">
+					Western Channel</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Yakara">
+					Yakara</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Eastern Channel">
+					Eastern Channel</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Blarg the Imp">
+					Blarg the Imp</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Desolate Sands">
+					Desolate Sands</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Bloodfeather">
+					Bloodfeather</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Desolate Sands">
+					Desolate Sands</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Raiha the Vicious">
+					Raiha the Vicious</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Desolate Sands">
+					Desolate Sands</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Hellscream">
+					Hellscream</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Unknown Depths">
+					The Unknown Depths</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="The Archivist">
+					The Archivist</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Unknown Depths">
+					The Unknown Depths</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Mage Lord Flaydren">
+					Mage Lord Flaydren</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Unknown Depths">The Unknown Depths</a><br>
+					<a class="place-name" title="The Storm Halls">
+					The Storm Halls</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Mage Lord Caustus">
+					Mage Lord Caustus</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Storm Halls">
+					The Storm Halls</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Mage Lord Ghuyan">
+					Mage Lord Ghuyan</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Storm Halls">
+					The Storm Halls</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Mage Lord Skomara">
+					Mage Lord Skomara</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Storm Halls">
+					The Storm Halls</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Thrum">
+					Thrum</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Realm of Shadow">
+					Realm of Shadow</a>
+				</td></tr>
+			</tbody>
+		</table>
+
+		<label>Act III</label><br>
+		<table class="actIII">
+
+			<thead>
+				<tr><th> Monster</th><th></th><th> Location</th></tr>
+			</thead>
+
+			<tbody>
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Marchocyas">
+					Marchocyas</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Skycrown Battlements">
+					Skycrown Battlements</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Bashface the Truncheon">
+					Bashface the Truncheon</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Stonefort">
+					Stonefort</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Captain Dale">
+					Captain Dale</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Keep Depths Level 1">
+					The Keep Depths Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Thornback">
+					Thornback</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Keep Depths Level 1">
+					The Keep Depths Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Axegrave the Executioner">
+					Axegrave the Executioner</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Keep Depths Level 2">
+					The Keep Depths Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="The Crusher">
+					The Crusher</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Keep Depths Level 2">The Keep Depths Level 2</a><br>
+					<a class="place-name" title="Tower of the Damned Level 2">
+					Tower of the Damned Level 2</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Belagg Pierceflesh">
+					Belagg Pierceflesh</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Keep Depths Level 3">
+					The Keep Depths Level 3</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Gugyn the Gauntlet">
+					Gugyn the Gauntlet</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Keep Depths Level 3">
+					The Keep Depths Level 3</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Vicious Gray Turkey">
+					Vicious Gray Turkey</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Keep Depths Level 3">
+					The Keep Depths Level 3</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Dreadgrasp">
+					Dreadgrasp</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Battlefields">
+					The Battlefields</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Mehshak the Abomination">
+					Mehshak the Abomination</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Battlefields">
+					The Battlefields</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Blarg the Foul">
+					Blarg the Foul</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Bridge of Korsikk">
+					The Bridge of Korsikk</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Chiltara">
+					Chiltara</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Caverns of Frost Level 2">
+					Caverns of Frost Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Direclaw the Demonflyer">
+					Direclaw the Demonflyer</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Rakkis Crossing">
+					Rakkis Crossing</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Lummock the Brute">
+					Lummock the Brute</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Rakkis Crossing">
+					Rakkis Crossing</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Shandra'Har">
+					Shandra'Har</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Rakkis Crossing">
+					Rakkis Crossing</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Gormungandr">
+					Gormungandr</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Arreat Crater Level 1">
+					Arreat Crater Level 1</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Growlfang">
+					Growlfang</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Arreat Crater Level 1">
+					Arreat Crater Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Severclaw">
+					Severclaw</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Arreat Crater Level 1">
+					Arreat Crater Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Charuch the Spear">
+					Charuch the Spear</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Arreat Crater Level 2">Arreat Crater Level 2</a><br>
+					<a class="place-name" title="Tower of the Cursed Level 1">Tower of the Cursed Level 1</a><br>
+					<a class="place-name" title="Tower of the Damned Level 1">
+					Tower of the Damned Level 1</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Demonika the Wicked">
+					Demonika the Wicked</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Tower of the Damned Level 1">
+					Tower of the Damned Level 1</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Haxxor">
+					Haxxor</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Tower of the Cursed Level 2">Tower of the Cursed Level 2</a><br>
+					<a class="place-name" title="Tower of the Damned Level 1">
+					Tower of the Damned Level 1</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Gholash">
+					Gholash</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Tower of the Damned Level 1">
+					Tower of the Damned Level 1</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Riplash">
+					Riplash</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Tower of the Damned Level 2">
+					Tower of the Damned Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Hyrug the Malformed">
+					Hyrug the Malformed</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Tower of the Cursed Level 1">
+					Tower of the Cursed Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Axgore the Cleaver">
+					Axgore the Cleaver</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Core of Arreat">
+					The Core of Arreat</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Gorog the Bruiser">
+					Gorog the Bruiser</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Core of Arreat">
+					The Core of Arreat</a>
+				</td></tr>
+			</tbody>
+		</table>
+
+		<label>Act IV</label><br>
+		<table class="actIV">
+			<thead>
+				<tr><th> Monster</th><th></th><th> Location</th></tr>
+			</thead>
+
+			<tbody>
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Khatun">
+					Khatun</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Gardens of Hope 1st Tier">
+					Gardens of Hope 1st Tier</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Veshan the Fierce">
+					Veshan the Fierce</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Gardens of Hope 1st Tier">
+					Gardens of Hope 1st Tier</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Torchlighter">
+					Torchlighter</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Gardens of Hope 1st Tier">
+					Gardens of Hope 1st Tier</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Kysindra the Wretched">
+					Kysindra the Wretched</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Silver Spire Level 1">
+					The Silver Spire Level 1</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Pyres the Damned">
+					Pyres the Damned</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Silver Spire Level 1">
+					The Silver Spire Level 1</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Slarg the Behemoth">
+					Slarg the Behemoth</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Silver Spire Level 1">
+					The Silver Spire Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Grimnight the Soulless">
+					Grimnight the Soulless</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Silver Spire Level 2">
+					The Silver Spire Level 2</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Haures">
+					Haures</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Silver Spire Level 2">
+					The Silver Spire Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Rhau'Kye">
+					Rhau'Kye</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Silver Spire Level 2">
+					The Silver Spire Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Sao'Thall">
+					Sao'Thall</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Silver Spire Level 2">
+					The Silver Spire Level 2</a>
+				</td></tr>
+			</tbody>
+		</table>
+	</div><!-- a unique collection -->
+
+    <!--
+    ##########################################################################
+		A Rare Phenomenon
+
+		Kill a rare enemy of all the following types.
+	##########################################################################
+	-->
+	<div class="achievement sc">
+		<h2>A Rare Phenomenon</h2>
+
+		<label>Act I</label><br>
+		<table id="a_rare_phenomenon_aI" class="actI">
+
+			<thead>
+				<tr><th> Monster</th><th></th><th> Location</th></tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Ravenous Dead">Ravenous Dead</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Cathedral Level 1">Cathedral Level 1</a><br>
+						<a class="place-name" title="The Weeping Hollow">The Weeping Hollow</a><br>
+						<a class="place-name" title="Cemetery of the Forsaken">Cemetery of the Forsaken</a><br>
+						<a class="place-name" title="Defiled Crypt">Defiled Crypt</a><br>
+						<a class="place-name" title="Fields of Misery">Fields of Misery</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Skeleton">Skeleton</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Weeping Hollow">The Weeping Hollow</a><br>
+						<a class="place-name" title="Cemetery of the Forsaken">Cemetery of the Forsaken</a><br>
+						<a class="place-name" title="Defiled Crypt">Defiled Crypt</a><br>
+						<a class="place-name" title="Cathedral Level 2">Cathedral Level 2</a><br>
+						<a class="place-name" title="Cathedral Level 3">Cathedral Level 3</a><br>
+						<a class="place-name" title="Cathedral Level 4">Cathedral Level 4</a><br>
+						<a class="place-name" title="The Royal Crypts">The Royal Crypts</a><br>
+						<a class="place-name" title="Development Hell">Development Hell</a><br>
+						<a class="place-name" title="Fields of Misery">Fields of Misery</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Hungry Corpse">Hungry Corpse</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Weeping Hollow">The Weeping Hollow</a><br>
+						<a class="place-name" title="Cemetery of the Forsaken">Cemetery of the Forsaken</a><br>
+						<a class="place-name" title="Defiled Crypt">Defiled Crypt</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Scavenger">Scavenger</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Weeping Hollow">The Weeping Hollow</a><br>
+						<a class="place-name" title="Defiled Crypt">Defiled Crypt</a><br>
+						<a class="place-name" title="Fields of Misery">Fields of Misery</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Retching Cadaver">Retching Cadaver</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Weeping Hollow">The Weeping Hollow</a><br>
+						<a class="place-name" title="Defiled Crypt">Defiled Crypt</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Imp">Imp</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Defiled Crypt">Defiled Crypt</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Harvester">Harvester</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Cathedral Level 4">Cathedral Level 4</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Skeletal Archer">Skeletal Archer</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Cathedral Level 4">Cathedral Level 4</a><br>
+						<a class="place-name" title="The Royal Crypts">The Royal Crypts</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Savage Beast">Savage Beast</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Fields of Misery">Fields of Misery</a><br>
+						<a class="place-name" title="Southern Highlands">Southern Highlands</a><br>
+						<a class="place-name" title="Northern Highlands">Northern Highlands</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Quill Demon">Quill Demon</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Scavenger's Den Level 1">Scavenger's Den Level 1</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Enraged Phantom">Enraged Phantom</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Festering Woods">The Festering Woods</a><br>
+						<a class="place-name" title="Decaying Crypt">Decaying Crypt</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Returned Archer">Returned Archer</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Festering Woods">The Festering Woods</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Arachnid Horror (page does not exist)">Arachnid Horror</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Caverns of Araneae">Caverns of Araneae</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Dark Cultist">Dark Cultist</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Southern Highlands">Southern Highlands</a><br>
+						<a class="place-name" title="Northern Highlands">Northern Highlands</a><br>
+						<a class="place-name" title="Leoric's Hunting Grounds">Leoric's Hunting Grounds</a><br>
+						<a class="place-name" title="Leoric's Manor">Leoric's Manor</a><br>
+						<a class="place-name" title="Halls of Agony Level 1">Halls of Agony Level 1</a><br>
+						<a class="place-name" title="Halls of Agony Level 2">Halls of Agony Level 2</a><br>
+						<a class="place-name" title="Highlands Passage">Highlands Passage</a><br>
+						<a class="place-name" title="Halls of Agony Level 3">Halls of Agony Level 3</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Unholy Thrall">Unholy Thrall</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Halls of Agony Level 3">Halls of Agony Level 3</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Dark Berserker">Dark Berserker</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Leoric's Manor">Leoric's Manor</a><br>
+						<a class="place-name" title="Halls of Agony Level 1">Halls of Agony Level 1</a><br>
+						<a class="place-name" title="Halls of Agony Level 2">Halls of Agony Level 2</a><br>
+						<a class="place-name" title="Highlands Passage">Highlands Passage</a><br>
+						<a class="place-name" title="Halls of Agony Level 3">Halls of Agony Level 3</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Disentombed Hulk">Disentombed Hulk</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Halls of Agony Level 1">Halls of Agony Level 1</a><br>
+						<a class="place-name" title="Halls of Agony Level 2">Halls of Agony Level 2</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Savage Fiend">Savage Fiend</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Cursed Hold">The Cursed Hold</a>
+				</td></tr>
+			</tbody>
+		</table>
+
+		<label>Act II</label><br>
+		<table id="a_rare_phenomenon_aII" class="actII">
+
+			<thead>
+				<tr><th> Monster</th><th></th><th> Location</th></tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Lacuni Huntress">Lacuni Huntress</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Sundered Canyon">Sundered Canyon</a><br>
+						<a class="place-name" title="Howling Plateau">Howling Plateau</a><br>
+						<a class="place-name" title="Black Canyon Mines">Black Canyon Mines</a><br>
+						<a class="place-name" title="Stinging Winds">Stinging Winds</a><br>
+					
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen">Fallen</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Sundered Canyon">Sundered Canyon</a><br>
+						<a class="place-name" title="Howling Plateau">Howling Plateau</a><br>
+						<a class="place-name" title="Black Canyon Mines">Black Canyon Mines</a><br>
+						<a class="place-name" title="Stinging Winds">Stinging Winds</a><br>
+						<a class="place-name" title="Road to Alcarnus">Road to Alcarnus</a><br>
+						<a class="place-name" title="Eastern Channel">Eastern Channel</a><br>
+						<a class="place-name" title="Hidden Aqueducts">Hidden Aqueducts</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Overseer">Fallen Overseer</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Howling Plateau">Howling Plateau</a><br>
+						<a class="place-name" title="Black Canyon Mines">Black Canyon Mines</a><br>
+						<a class="place-name" title="Stinging Winds">Stinging Winds</a><br>
+						<a class="place-name" title="Road to Alcarnus">Road to Alcarnus</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Bone Warrior">Bone Warrior</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Howling Plateau">Howling Plateau</a><br>
+						<a class="place-name" title="Black Canyon Mines">Black Canyon Mines</a><br>
+						<a class="place-name" title="Sewers of Caldeum">Sewers of Caldeum</a><br>
+						<a class="place-name" title="Ruined Cistern">Ruined Cistern</a><br>
+						<a class="place-name" title="The Forgotten Ruins">The Forgotten Ruins</a><br>
+						<a class="place-name" title="Cave of the Betrayer Level 2">Cave of the Betrayer Level 2</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Cave Wing">Cave Wing</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Sirocco Caverns Level 1">Sirocco Caverns Level 1</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Vicious Ghoul">Vicious Ghoul</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Sirocco Caverns Level 1">Sirocco Caverns Level 1</a><br>
+						<a class="place-name" title="Sirocco Caverns Level 2">Sirocco Caverns Level 2</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Frenzied Hellion">Frenzied Hellion</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Road to Alcarnus">Road to Alcarnus</a><br>
+						<a class="place-name" title="Alcarnus">Alcarnus</a><br>
+						<a class="place-name" title="Alcarnus Cellar">Alcarnus Cellar</a><br>
+						<a class="place-name" title="Sandy Cellar">Sandy Cellar</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Betrayed">Betrayed</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Tomb of Sardar">Tomb of Sardar</a><br>
+						<a class="place-name" title="Tomb of Khan Dakab">Tomb of Khan Dakab</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Skeletal Ranger (page does not exist)">Skeletal Ranger</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Sewers of Caldeum">Sewers of Caldeum</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Skeletal Sentry">Skeletal Sentry</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Forgotten Ruins">The Forgotten Ruins</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Noxious Guardian">Noxious Guardian</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Sewers of Caldeum">Sewers of Caldeum</a><br>
+						<a class="place-name" title="Ruined Cistern">Ruined Cistern</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Dune Dervish">Dune Dervish</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Dahlgur Oasis">Dahlgur Oasis</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Serpent Magus">Serpent Magus</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Dahlgur Oasis">Dahlgur Oasis</a><br>
+						<a class="place-name" title="The Ruins Level 1">The Ruins Level 1</a><br>
+						<a class="place-name" title="The Ruins Level 2">The Ruins Level 2</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Peon">Fallen Peon</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Dahlgur Oasis">Dahlgur Oasis</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Cur (page does not exist)">Fallen Cur</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Storm Halls">The Storm Halls</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Conjurer">Fallen Conjurer</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Dahlgur Oasis">Dahlgur Oasis</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Spine Hewer">Spine Hewer</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Forgotten Ruins">The Forgotten Ruins</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Accursed">Accursed</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Eastern Channel">Eastern Channel</a><br>
+						<a class="place-name" title="Desolate Sands">Desolate Sands</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Murderous Fiend">Murderous Fiend</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Eastern Channel">Eastern Channel</a><br>
+						<a class="place-name" title="Cave of the Betrayer Level 1">Cave of the Betrayer Level 1</a><br>
+						<a class="place-name" title="Cave of the Betrayer Level 2">Cave of the Betrayer Level 2</a><br>
+						<a class="place-name" title="Vile Cavern Level 1">Vile Cavern Level 1</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Webspitter Spider (page does not exist)">Webspitter Spider</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Cave of the Betrayer Level 1">Cave of the Betrayer Level 1</a><br>
+						<a class="place-name" title="Cave of the Betrayer Level 2">Cave of the Betrayer Level 2</a><br>
+						<a class="place-name" title="Vile Cavern Level 1">Vile Cavern Level 1</a><br>
+						<a class="place-name" title="Vile Cavern Level 2">Vile Cavern Level 2</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Brood Hatchling">Brood Hatchling</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Cave of the Betrayer Level 1">Cave of the Betrayer Level 1</a><br>
+						<a class="place-name" title="Cave of the Betrayer Level 2">Cave of the Betrayer Level 2</a><br>
+						<a class="place-name" title="Vile Cavern Level 1">Vile Cavern Level 1</a><br>
+						<a class="place-name" title="Vile Cavern Level 2">Vile Cavern Level 2</a><br>
+						<a class="place-name" title="The Storm Halls">The Storm Halls</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Lacuni Slasher">Lacuni Slasher</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Desolate Sands">Desolate Sands</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Sand Dweller">Sand Dweller</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Forgotten Ruins">The Forgotten Ruins</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Ancient Walker">Ancient Walker</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Desolate Sands">Desolate Sands</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Reaper">Reaper</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Cave of Burrowing Horror Level 1">Cave of Burrowing Horror Level 1</a><br>
+						<a class="place-name" title="Cave of Burrowing Horror Level 2">Cave of Burrowing Horror Level 2</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Skeletal Raider">Skeletal Raider</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Storm Halls">The Storm Halls</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Dust Imp">Dust Imp</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Ruins Level 2">The Ruins Level 2</a><br>
+						<a class="place-name" title="The Ruins Level 1">The Ruins Level 1</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Smoldering Construct">Smoldering Construct</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Unknown Depths">The Unknown Depths</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Charged Construct">Charged Construct</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Storm Halls">The Storm Halls</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Sand Behemoth">Sand Behemoth</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Realm of Shadow">Realm of Shadow</a>
+				</td></tr>
+			</tbody>
+		</table>
+
+		<label>Act III</label><br>
+		<table id="a_rare_phenomenon_aIII" class="actIII">
+
+			<thead>
+				<tr><th> Monster</th><th></th><th> Location</th></tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td class="enemy"> 
+						<a class="enemy-name" title="Fallen Hellhound">Fallen Hellhound</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Rakkis Crossing">Rakkis Crossing</a><br>
+						<a class="place-name" title="Bridge Stores">Bridge Stores</a><br>
+						<a class="place-name" title="Tower of the Damned Level 1">Tower of the Damned Level 1</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Demon Trooper">Demon Trooper</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+						<a class="place-name" title="Stonefort">Stonefort</a><br>
+						<a class="place-name" title="The Keep Depths Level 1">The Keep Depths Level 1</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Grunt">Fallen Grunt</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+						<a class="place-name" title="Stonefort">Stonefort</a><br>
+						<a class="place-name" title="The Barracks Level 1">The Barracks Level 1</a><br>
+						<a class="place-name" title="The Barracks Level 2">The Barracks Level 2</a><br>
+						<a class="place-name" title="The Forward Barracks">The Forward Barracks</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Prophet">Fallen Prophet</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+						<a class="place-name" title="Stonefort">Stonefort</a><br>
+						<a class="place-name" title="The Barracks Level 1">The Barracks Level 1</a><br>
+						<a class="place-name" title="The Barracks Level 2">The Barracks Level 2</a><br>
+						<a class="place-name" title="The Forward Barracks">The Forward Barracks</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Slavelord">Fallen Slavelord</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+						<a class="place-name" title="Rakkis Crossing">Rakkis Crossing</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Soldier">Fallen Soldier</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+						<a class="place-name" title="Rakkis Crossing">Rakkis Crossing</a><br>
+						<a class="place-name" title="Bridge Stores">Bridge Stores</a><br>
+						<a class="place-name" title="Edge of the Abyss">Edge of the Abyss</a><br>
+						<a class="place-name" title="Arreat Crater Level 1">Arreat Crater Level 1</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Demonic Hellflyer">Demonic Hellflyer</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+						<a class="place-name" title="Stonefort">Stonefort</a><br>
+						<a class="place-name" title="The Barracks Level 1">The Barracks Level 1</a><br>
+						<a class="place-name" title="The Battlefields">The Battlefields</a><br>
+						<a class="place-name" title="Rakkis Crossing">Rakkis Crossing</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Maniacal Golgor (page does not exist)">Maniacal Golgor</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Core of Arreat">The Core of Arreat</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Soul Ripper (page does not exist)">Soul Ripper</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Keep Depths Level 1">The Keep Depths Level 1</a><br>
+						<a class="place-name" title="The Keep Depths Level 2">The Keep Depths Level 2</a><br>
+						<a class="place-name" title="The Breach">The Breach</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Skeletal Marauder">Skeletal Marauder</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Battlefield Stores">Battlefield Stores</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Skull Cleaver">Skull Cleaver</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Battlefield Stores">Battlefield Stores</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Skull Sword">Skull Sword</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Keep Depths Level 2">The Keep Depths Level 2</a><br>
+						<a class="place-name" title="Battlefield Stores">Battlefield Stores</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Demonic Tremor (page does not exist)">Demonic Tremor</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Keep Depths Level 2">The Keep Depths Level 2</a><br>
+						<a class="place-name" title="The Keep Depths Level 3">The Keep Depths Level 3</a><br>
+						<a class="place-name" title="The Battlefields">The Battlefields</a><br>
+						<a class="place-name" title="Fields of Slaughter">Fields of Slaughter</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Herald of Pestilence">Herald of Pestilence</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Arreat Gate">The Arreat Gate</a><br>
+						<a class="place-name" title="The Battlefields">The Battlefields</a><br>
+						<a class="place-name" title="The Bridge of Korsikk">The Bridge of Korsikk</a><br>
+						<a class="place-name" title="Fields of Slaughter">Fields of Slaughter</a><br>
+						<a class="place-name" title="Rakkis Crossing">Rakkis Crossing</a><br>
+						<a class="place-name" title="Arreat Crater Level 1">Arreat Crater Level 1</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Blood Clan Warrior">Blood Clan Warrior</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Battlefields">The Battlefields</a><br>
+						<a class="place-name" title="The Bridge of Korsikk">The Bridge of Korsikk</a><br>
+						<a class="place-name" title="The Underbridge">The Underbridge</a><br>
+						<a class="place-name" title="Fields of Slaughter">Fields of Slaughter</a><br>
+						<a class="place-name" title="Rakkis Crossing">Rakkis Crossing</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Wintersbane Huntress">Wintersbane Huntress</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Caverns of Frost Level 1">Caverns of Frost Level 1</a><br>
+						<a class="place-name" title="Caverns of Frost Level 2">Caverns of Frost Level 2</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Stygian Crawler (page does not exist)">Stygian Crawler</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Arreat Crater Level 1">Arreat Crater Level 1</a><br>
+						<a class="place-name" title="Arreat Crater Level 2">Arreat Crater Level 2</a><br>
+						<a class="place-name" title="The Core of Arreat">The Core of Arreat</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Blood Clan Occultist (page does not exist)">Blood Clan Occultist</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Arreat Crater Level 2">Arreat Crater Level 2</a><br>
+						<a class="place-name" title="Tower of the Cursed Level 1">Tower of the Cursed Level 1</a><br>
+						<a class="place-name" title="Tower of the Cursed Level 2">Tower of the Cursed Level 2</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Hulking Phasebeast (page does not exist)">Hulking Phasebeast</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Arreat Crater Level 2">Arreat Crater Level 2</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Succubus">Succubus</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Arreat Crater Level 2">Arreat Crater Level 2</a><br>
+						<a class="place-name" title="The Core of Arreat">The Core of Arreat</a>
+				</td></tr>
+			</tbody>
+		</table>
+
+		<label>Act IV</label><br>
+		<table id="a_rare_phenomenon_aIV" class="actIV">
+
+			<thead>
+				<tr><th> Monster</th><th></th><th> Location</th></tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Subjugator (page does not exist)">Subjugator</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Gardens of Hope 1st Tier">Gardens of Hope 1st Tier</a><br>
+						<a class="place-name" title="Hell Rift">Hell Rift</a><br>
+						<a class="place-name" title="Gardens of Hope 2nd Tier">Gardens of Hope 2nd Tier</a><br>
+						<a class="place-name" title="The Silver Spire Level 1">The Silver Spire Level 1</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Armaddon">Armaddon</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Sacellum of Virtue">Sacellum of Virtue</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Darksky Fire Demon (page does not exist)">Darksky Fire Demon</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="Gardens of Hope 2nd Tier">Gardens of Hope 2nd Tier</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Mallet Lord">Mallet Lord</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Silver Spire Level 1">The Silver Spire Level 1</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Morlu Legionnaire (page does not exist)">Morlu Legionnaire</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Silver Spire Level 1">The Silver Spire Level 1</a><br>
+						<a class="place-name" title="The Silver Spire Level 2">The Silver Spire Level 2</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Morlu Incinerator (page does not exist)">Morlu Incinerator</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Silver Spire Level 1">The Silver Spire Level 1</a><br>
+						<a class="place-name" title="The Silver Spire Level 2">The Silver Spire Level 2</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Armored Destroyer">Armored Destroyer</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Silver Spire Level 2">The Silver Spire Level 2</a>
+				</td></tr>
+				<tr>
+					<td class="enemy">
+						<a class="enemy-name" onclick="toggle_objective(this);" title="Enslaved Nightmare (page does not exist)">Enslaved Nightmare</a>
+					</td>	
+					<td class="enemy-links">JS filled</td>
+					<td class="places">
+						<a class="place-name" title="The Silver Spire Level 2">The Silver Spire Level 2</a>
+				</td></tr>
+			</tbody>
+		</table>
+	</div><!-- a rare phenomenon -->
+
+	<!--
+    ##########################################################################
+		Trophy Hunting
+
+		Kill each type of rare enemy in Hardcore mode.
+    ##########################################################################
+	-->
+	<div class="achievement hc">
+		<h2>Trophy Hunting</h2>
+
+		<label>Act I</label><br>
+		<table id="trophy_hunting_aI" class="actI">
+
+			<thead>
+				<tr><th> Monster</th><th></th><th> Location</th></tr>
+			</thead>
+
+			<tbody>
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Arachnid Horror">
+					Arachnid Horror</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Caverns of Araneae">
+					Caverns of Araneae</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Dark Berserker">
+					Dark Berserker</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Leoric's Manor">Leoric's Manor</a><br>
+					<a class="place-name" title="Halls of Agony Level 1">Halls of Agony Level 1</a><br>
+					<a class="place-name" title="Halls of Agony Level 2">Halls of Agony Level 2</a><br>
+					<a class="place-name" title="Highlands Passage">Highlands Passage</a><br>
+					<a class="place-name" title="Halls of Agony Level 3">
+					Halls of Agony Level 3</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Dark Cultist">
+					Dark Cultist</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Southern Highlands">Southern Highlands</a><br>
+					<a class="place-name" title="Northern Highlands">Northern Highlands</a><br>
+					<a class="place-name" title="Leoric's Hunting Grounds">Leoric's Hunting Grounds</a><br>
+					<a class="place-name" title="Leoric's Manor">Leoric's Manor</a><br>
+					<a class="place-name" title="Halls of Agony Level 1">Halls of Agony Level 1</a><br>
+					<a class="place-name" title="Halls of Agony Level 2">Halls of Agony Level 2</a><br>
+					<a class="place-name" title="Highlands Passage">Highlands Passage</a><br>
+					<a class="place-name" title="Halls of Agony Level 3">
+					Halls of Agony Level 3</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Disentombed Hulk">
+					Disentombed Hulk</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Halls of Agony Level 1">Halls of Agony Level 1</a><br>
+					<a class="place-name" title="Halls of Agony Level 2">
+					Halls of Agony Level 2</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Enraged Phantom">
+					Enraged Phantom</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td>
+					<del>The Festering Woods</del><br>
+					<a class="place-name" title="Decaying Crypt">
+					Decaying Crypt</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Harvester">
+					Harvester</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cathedral Level 4">
+					Cathedral Level 4</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Hungry Corpse">
+					Hungry Corpse</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Weeping Hollow">The Weeping Hollow</a><br>
+					<a class="place-name" title="Cemetery of the Forsaken">Cemetery of the Forsaken</a><br>
+					<a class="place-name" title="Defiled Crypt">
+					Defiled Crypt</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Imp">
+					Imp</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Defiled Crypt">
+					Defiled Crypt</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Quill Demon">
+					Quill Demon</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Scavenger's Den Level 1">Scavenger's Den Level 1</a><br>
+					<a class="place-name" title="Lost Mine">
+					Lost Mine</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Ravenous Dead">
+					Ravenous Dead</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Weeping Hollow">The Weeping Hollow</a><br>
+					<a class="place-name" title="Cemetery of the Forsaken">Cemetery of the Forsaken</a><br>
+					<a class="place-name" title="Defiled Crypt">
+					Defiled Crypt</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Retching Cadaver">
+					Retching Cadaver</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Weeping Hollow">The Weeping Hollow</a><br>
+					<a class="place-name" title="Defiled Crypt">
+					Defiled Crypt</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Returned Archer">
+					Returned Archer</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Festering Woods">
+					The Festering Woods</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Savage Beast">
+					Savage Beast</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Fields of Misery">Fields of Misery</a><br>
+					<a class="place-name" title="Southern Highlands">Southern Highlands</a><br>
+					<a class="place-name" title="Northern Highlands">
+					Northern Highlands</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Savage Fiend">
+					Savage Fiend</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Cursed Hold">
+					The Cursed Hold</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Scavenger">
+					Scavenger</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Weeping Hollow">The Weeping Hollow</a><br>
+					<a class="place-name" title="Defiled Crypt">Defiled Crypt</a><br>
+					<a class="place-name" title="Fields of Misery">
+					Fields of Misery</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Skeletal Archer">
+					Skeletal Archer</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cathedral Level 4">Cathedral Level 4</a><br>
+					<a class="place-name" title="The Royal Crypts">
+					The Royal Crypts</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Skeleton">
+					Skeleton</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Weeping Hollow">The Weeping Hollow</a><br>
+					<a class="place-name" title="Cemetery of the Forsaken">Cemetery of the Forsaken</a><br>
+					<a class="place-name" title="Defiled Crypt">Defiled Crypt</a><br>
+					<a class="place-name" title="Cathedral Level 2">Cathedral Level 2</a><br>
+					<a class="place-name" title="Cathedral Level 3">Cathedral Level 3</a><br>
+					<a class="place-name" title="Cathedral Level 4">Cathedral Level 4</a><br>
+					<a class="place-name" title="The Royal Crypts">The Royal Crypts</a><br>
+					<a class="place-name" title="Development Hell">Development Hell</a><br>
+					<a class="place-name" title="Fields of Misery">
+					Fields of Misery</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Unholy Thrall">
+					Unholy Thrall</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Leoric's Manor">Leoric's Manor</a><br>
+					<a class="place-name" title="Leoric's Manor">Halls of Agony Level 1</a><br>
+					<a class="place-name" title="Halls of Agony Level 3">
+					Halls of Agony Level 3</a>
+				</td></tr>
+
+			</tbody>
+		</table>
+
+		<label>Act II</label><br>
+		<table class="actII">
+			<thead>
+				<tr><th> Monster</th><th></th><th> Location</th></tr>
+			</thead>
+
+			<tbody>	
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Accursed">
+					Accursed</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Eastern Channel">Eastern Channel</a><br>
+					<a class="place-name" title="Desolate Sands">
+					Desolate Sands</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Ancient Walker">
+					Ancient Walker</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Desolate Sands">
+					Desolate Sands</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Betrayed">
+					Betrayed</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Tomb of Khan Dakab">
+					Tomb of Khan Dakab</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Bone Warrior">
+					Bone Warrior</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Howling Plateau">Howling Plateau</a><br>
+					<a class="place-name" title="Black Canyon Mines">Black Canyon Mines</a><br>
+					<a class="place-name" title="Sewers of Caldeum">Sewers of Caldeum</a><br>
+					<a class="place-name" title="Ruined Cistern">Ruined Cistern</a><br>
+					<a class="place-name" title="The Forgotten Ruins">The Forgotten Ruins</a><br>
+					<a class="place-name" title="Cave of the Betrayer Level 2">
+					Cave of the Betrayer Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Brood Hatchling">
+					Brood Hatchling</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cave of the Betrayer Level 1">Cave of the Betrayer Level 1</a><br>
+					<a class="place-name" title="Cave of the Betrayer Level 2">Cave of the Betrayer Level 2</a><br>
+					<a class="place-name" title="Vile Cavern Level 1">Vile Cavern Level 1</a><br>
+					<a class="place-name" title="Vile Cavern Level 2">Vile Cavern Level 2</a><br>
+					<a class="place-name" title="The Storm Halls">
+					The Storm Halls</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Cave Wing">
+					Cave Wing</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Sirocco Caverns Level 1">
+					Sirocco Caverns Level 1</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Charged Construct">
+					Charged Construct</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Storm Halls">
+					The Storm Halls</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Dune Dervish">
+					Dune Dervish</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Dahlgur Oasis">
+					Dahlgur Oasis</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Dust Imp">
+					Dust Imp</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Unknown Depths">The Unknown Depths</a><br>
+					<a class="place-name" title="The Storm Halls">The Storm Halls</a><a class="place-name" title="The Ruins">
+					The Ruins</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Conjurer">
+					Fallen Conjurer</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Dahlgur Oasis">
+					Dahlgur Oasis</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Cur">
+					Fallen Cur</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Dahlgur Oasis">Dahlgur Oasis</a><br>
+					<a class="place-name" title="Ancient Path">
+					Ancient Path</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Overseer">
+					Fallen Overseer</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Black Canyon Mines">Black Canyon Mines</a><br>
+					<a class="place-name" title="Stinging Winds">
+					Stinging Winds</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Peon">
+					Fallen Peon</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Dahlgur Oasis">
+					Dahlgur Oasis</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen">
+					Fallen</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Howling Plateau">Howling Plateau</a><br>
+					<a class="place-name" title="Black Canyon Mines">Black Canyon Mines</a><br>
+					<a class="place-name" title="Stinging Winds">
+					Stinging Winds</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Frenzied Hellion">
+					Frenzied Hellion</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Road to Alcarnus">Road to Alcarnus</a><br>
+					<a class="place-name" title="Alcarnus">Alcarnus</a><br>
+					<a class="place-name" title="Alcarnus Cellar">Alcarnus Cellar</a><br>
+					<a class="place-name" title="Sandy Cellar">
+					Sandy Cellar</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Lacuni Huntress">
+					Lacuni Huntress</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Howling Plateau">
+					Howling Plateau</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Lacuni Slasher">
+					Lacuni Slasher</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Desolate Sands">
+					Desolate Sands</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Murderous Fiend">
+					Murderous Fiend</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Eastern Channel">Eastern Channel</a><br>
+					<a class="place-name" title="Cave of the Betrayer Level 1">Cave of the Betrayer Level 1</a><br>
+					<a class="place-name" title="Cave of the Betrayer Level 2">Cave of the Betrayer Level 2</a><br>
+					<a class="place-name" title="Vile Cavern Level 1">
+					Vile Cavern Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Noxious Guardian">
+					Noxious Guardian</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Sewers of Caldeum">Sewers of Caldeum</a><br>
+					<a class="place-name" title="Ruined Cistern">
+					Ruined Cistern</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Reaper">
+					Reaper</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cave of Burrowing Horror Level 1">Cave of Burrowing Horror Level 1</a><br>
+					<a class="place-name" title="Cave of Burrowing Horror Level 2">
+					Cave of Burrowing Horror Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Sand Behemoth">
+					Sand Behemoth</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Realm of Shadow">
+					Realm of Shadow</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Sand Dweller">
+					Sand Dweller</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Desolate Sands">
+					Desolate Sands</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Serpent Magus">
+					Serpent Magus</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Dahlgur Oasis">Dahlgur Oasis</a><br>
+					<a class="place-name" title="The Ruins Level 1">The Ruins Level 1</a><br>
+					<a class="place-name" title="The Ruins Level 2">
+					The Ruins Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Skeletal Raider">
+					Skeletal Raider</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Vault of the Assassin">Vault of the Assassin</a><br>
+					<a class="place-name" title="The Unknown Depths">The Unknown Depths</a><br>
+					<a class="place-name" title="The Storm Halls">
+					The Storm Halls</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Skeletal Ranger">
+					Skeletal Ranger</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Sewers of Caldeum">Sewers of Caldeum</a><br>
+					<a class="place-name" title="Ruined Cistern">
+					Ruined Cistern</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Skeletal Sentry">
+					Skeletal Sentry</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Sewers of Caldeum">Sewers of Caldeum</a><br>
+					<a class="place-name" title="The Forgotten Ruins">
+					The Forgotten Ruins</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Smoldering Construct">
+					Smoldering Construct</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Unknown Depths">
+					The Unknown Depths</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Spine Hewer">
+					Spine Hewer</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Forgotten Ruins">
+					The Forgotten Ruins</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Vicious Ghoul">
+					Vicious Ghoul</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Sirocco Caverns Level 1">Sirocco Caverns Level 1</a><br>
+					<a class="place-name" title="Sirocco Caverns Level 2">
+					Sirocco Caverns Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Webspitter Spider">
+					Webspitter Spider</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cave of the Betrayer Level 1">Cave of the Betrayer Level 1</a><br>
+					<a class="place-name" title="Cave of the Betrayer Level 2">Cave of the Betrayer Level 2</a><br>
+					<a class="place-name" title="Vile Cavern Level 1">Vile Cavern Level 1</a><br>
+					<a class="place-name" title="Vile Cavern Level 2">
+					Vile Cavern Level 2</a>
+				</td></tr>
+
+			</tbody>
+		</table>
+
+		<label>Act III</label><br>
+		<table class="actIII">
+			<thead>
+				<tr><th> Monster</th><th></th><th> Location</th></tr>
+			</thead>
+			<tbody>	
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Blood Clan Occultist">
+					Blood Clan Occultist</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Arreat Crater Level 2">Arreat Crater Level 2</a><br>
+					<a class="place-name" title="Tower of the Cursed Level 1">Tower of the Cursed Level 1</a><br>
+					<a class="place-name" title="Tower of the Cursed Level 2">
+					Tower of the Cursed Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Blood Clan Warrior">
+					Blood Clan Warrior</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Battlefields">The Battlefields</a><br>
+					<a class="place-name" title="The Bridge of Korsikk">The Bridge of Korsikk</a><br>
+					<a class="place-name" title="The Underbridge">The Underbridge</a><br>
+					<a class="place-name" title="Fields of Slaughter">Fields of Slaughter</a><br>
+					<a class="place-name" title="Rakkis Crossing">
+					Rakkis Crossing</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Colossal Golgor">
+					Colossal Golgor</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+					<a class="place-name" title="Stonefort">Stonefort</a><br>
+					<a class="place-name" title="Fields of Slaughter">Fields of Slaughter</a><br>
+					<a class="place-name" title="Rakkis Crossing">Rakkis Crossing</a><br>
+					<a class="place-name" title="Arreat Crater">
+						Arreat Crater Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Demon Trooper">
+					Demon Trooper</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+					<a class="place-name" title="Stonefort">Stonefort</a><br>
+					<a class="place-name" title="The Keep Depths Level 1">
+					The Keep Depths Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Demonic Hellflyer">
+					Demonic Hellflyer</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+					<a class="place-name" title="Stonefort">Stonefort</a><br>
+					<a class="place-name" title="The Barracks Level 1">The Barracks Level 1</a><br>
+					<a class="place-name" title="The Battlefields">The Battlefields</a><br>
+					<a class="place-name" title="Rakkis Crossing">
+					Rakkis Crossing</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Demonic Tremor">
+					Demonic Tremor</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Keep Depths Level 2">The Keep Depths Level 2</a><br>
+					<a class="place-name" title="The Keep Depths Level 3">The Keep Depths Level 3</a><br>
+					<a class="place-name" title="The Battlefields">The Battlefields</a><br>
+					<a class="place-name" title="Fields of Slaughter">
+					Fields of Slaughter</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Grunt">
+					Fallen Grunt</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+					<a class="place-name" title="Stonefort">Stonefort</a><br>
+					<a class="place-name" title="The Barracks Level 1">The Barracks Level 1</a><br>
+					<a class="place-name" title="The Barracks Level 2">The Barracks Level 2</a><br>
+					<a class="place-name" title="The Forward Barracks">
+					The Forward Barracks</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Hellhound">
+					Fallen Hellhound</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Rakkis Crossing">Rakkis Crossing</a><br>
+					<a class="place-name" title="Bridge Stores">Bridge Stores</a><br>
+					<a class="place-name" title="Tower of the Damned Level 1">
+					Tower of the Damned Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Prophet">
+					Fallen Prophet</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+					<a class="place-name" title="Stonefort">Stonefort</a><br>
+					<a class="place-name" title="The Barracks Level 1">The Barracks Level 1</a><br>
+					<a class="place-name" title="The Barracks Level 2">The Barracks Level 2</a><br>
+					<a class="place-name" title="The Forward Barracks">
+					The Forward Barracks</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Slavelord">
+					Fallen Slavelord</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+					<a class="place-name" title="Rakkis Crossing">Rakkis Crossing</a><br>
+					<a class="place-name" title="Bridge Stores">
+					Bridge Stores</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Soldier">
+					Fallen Soldier</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+					<a class="place-name" title="Rakkis Crossing">Rakkis Crossing</a><br>
+					<a class="place-name" title="Bridge Stores">Bridge Stores</a><br>
+					<a class="place-name" title="Edge of the Abyss">Edge of the Abyss</a><br>
+					<a class="place-name" title="Arreat Crater Level 1">
+					Arreat Crater Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Herald of Pestilence">
+					Herald of Pestilence</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Arreat Gate">The Arreat Gate</a><br>
+					<a class="place-name" title="The Battlefields">The Battlefields</a><br>
+					<a class="place-name" title="The Bridge of Korsikk">The Bridge of Korsikk</a><br>
+					<a class="place-name" title="Fields of Slaughter">Fields of Slaughter</a><br>
+					<a class="place-name" title="Rakkis Crossing">Rakkis Crossing</a><br>
+					<a class="place-name" title="Arreat Crater Level 1">
+					Arreat Crater Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Hulking Phasebeast">
+					Hulking Phasebeast</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Arreat Crater Level 2">
+					Arreat Crater Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Skeletal Marauder">
+					Skeletal Marauder</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Battlefield Stores">
+					Battlefield Stores</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Skull Cleaver">
+					Skull Cleaver</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Battlefield Stores">
+					Battlefield Stores</a>
+				</td></tr>
+
+				<tr  class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Skull Sword">
+					Skull Sword</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Battlefield Stores">
+					Battlefield Stores</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Soul Ripper">
+					Soul Ripper</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Keep Depths Level 1">The Keep Depths Level 1</a><br>
+					<a class="place-name" title="The Keep Depths Level 2">The Keep Depths Level 2</a><br>
+					<a class="place-name" title="The Breach">
+					The Breach</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Stygian Crawler">
+					Stygian Crawler</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Arreat Crater Level 1">Arreat Crater Level 1</a><br>
+					<a class="place-name" title="Arreat Crater Level 2">Arreat Crater Level 2</a><br>
+					<a class="place-name" title="The Core of Arreat">
+					The Core of Arreat</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Succubus">
+					Succubus</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Arreat Crater Level 2">Arreat Crater Level 2</a><br>
+					<a class="place-name" title="The Core of Arreat">
+					The Core of Arreat</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Wintersbane Huntress">
+					Wintersbane Huntress</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td>
+					<a class="place-name" title="Caverns of Frost Level 1">Caverns of Frost Level 1</a><br>
+					<a class="place-name" title="Caverns of Frost Level 2">
+					Caverns of Frost Level 2</a>
+				</td></tr>
+
+			</tbody>
+		</table>
+
+		<label>Act IV</label><br>
+		<table class="actIV">
+			<thead>
+				<tr><th> Monster</th><th></th><th> Location</th></tr>
+			</thead>
+			<tbody>	
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Armaddon">
+					Armaddon</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Sacellum of Virtue">
+					Sacellum of Virtue</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Armored Destroyer">
+					Armored Destroyer</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td><del>The Silver Spire Level 2</del><br>
+					<a class="place-name">Gardens Of Hope Tier 1</a><br>
+					<a class="place-name">
+					Holy Sanctum</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Darksky Fire Demon">
+					Darksky Fire Demon</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Gardens of Hope 2nd Tier">
+					Gardens of Hope 2nd Tier</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Enslaved Nightmare">
+					Enslaved Nightmare</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Silver Spire Level 2">
+					The Silver Spire Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Mallet Lord">
+					Mallet Lord</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Silver Spire Level 1">The Silver Spire Level 1</a><br>
+					<a class="place-name" title="The Silver Spire Level 2">
+					The Silver Spire Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Morlu Incinerator">
+					Morlu Incinerator</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Silver Spire Level 1">The Silver Spire Level 1</a><br>
+					<a class="place-name" title="The Silver Spire Level 2">
+					The Silver Spire Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Morlu Legionnaire">
+					Morlu Legionnaire</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Silver Spire Level 1">The Silver Spire Level 1</a><br>
+					<a class="place-name" title="The Silver Spire Level 2">
+					The Silver Spire Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Subjugator">
+					Subjugator</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Gardens of Hope 1st Tier">Gardens of Hope 1st Tier</a><br>
+					<a class="place-name" title="Hell Rift">Hell Rift</a><br>
+					<a class="place-name" title="Gardens of Hope 2nd Tier">Gardens of Hope 2nd Tier</a><br>
+					<a class="place-name" title="The Silver Spire Level 1">
+					The Silver Spire Level 1</a>
+				</td></tr>
+			</tbody>
+			<tfoot></tfoot>
+		</table>
+	</div><!-- trophy hunting -->
+
+	<!--
+	##########################################################################
+		We are the champions
+
+		Kill each type of champion in Hardcore mode.
+	##########################################################################
+	-->
+
+	<div class="achievement hc">
+		
+		<h2>We are the champions</h2>
+
+		<label>Act I</label><br>
+		<table id="we_are_the_champions_aI" class="actI">
+			<thead>
+				<tr><th> Monster</th><th></th><th> Location</th></tr>
+			</thead>
+
+			<tbody>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Carrion Bat">
+					Carrion Bat</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cathedral Level 1">Cathedral Level 1</a><br>
+					<a class="place-name" title="Cathedral Level 2">Cathedral Level 2</a><br>
+					<a class="place-name" title="Cathedral Level 4">
+					Cathedral Level 4</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Dark Berserker">
+					Dark Berserker</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Leoric's Manor">Leoric's Manor</a><br>
+					<a class="place-name" title="Halls of Agony Level 1">Halls of Agony Level 1</a><br>
+					<a class="place-name" title="Halls of Agony Level 2">Halls of Agony Level 2</a><br>
+					<a class="place-name" title="Highlands Passage">Highlands Passage</a><br>
+					<a class="place-name" title="Halls of Agony Level 3">
+					Halls of Agony Level 3</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Dark Hellion">
+					Dark Hellion</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Halls of Agony Level 1">Halls of Agony Level 1</a><br>
+					<a class="place-name" title="Halls of Agony Level 2">Halls of Agony Level 2</a><br>
+					<a class="place-name" title="Halls of Agony Level 3">Halls of Agony Level 3</a><br>
+					<a class="place-name" title="Leoric's Hunting Grounds">Leoric's Hunting Grounds</a><br>
+					<a class="place-name" title="Leoric's Manor">Leoric's Manor</a><br>
+					<a class="place-name" title="Wortham">
+					Wortham</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Disentombed Hulk">
+					Disentombed Hulk</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Halls of Agony Level 1">Halls of Agony Level 1</a><br>
+					<a class="place-name" title="Halls of Agony Level 2">
+					Halls of Agony Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Horned Charger">
+					Horned Charger</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Leoric's Hunting Grounds">
+					Leoric's Hunting Grounds</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Hungry Corpse">
+					Hungry Corpse</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Weeping Hollow">The Weeping Hollow</a><br>
+					<a class="place-name" title="Cemetery of the Forsaken">Cemetery of the Forsaken</a><br>
+					<a class="place-name" title="Defiled Crypt">
+					Defiled Crypt</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Imp">
+					Imp</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Defiled Crypt">
+					Defiled Crypt</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Quill Demon">
+					Quill Demon</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Scavenger's Den Level 1">
+					Scavenger's Den Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Ravenous Dead">
+					Ravenous Dead</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cathedral Level 1">Cathedral Level 1</a><br>
+					<a class="place-name" title="The Weeping Hollow">The Weeping Hollow</a><br>
+					<a class="place-name" title="Cemetery of the Forsaken">Cemetery of the Forsaken</a><br>
+					<a class="place-name" title="Defiled Crypt">Defiled Crypt</a><br>
+					<a class="place-name" title="Fields of Misery">
+					Fields of Misery</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Savage Fiend">
+					Savage Fiend</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Cursed Hold">
+					The Cursed Hold</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Scavenger">
+					Scavenger</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Weeping Hollow">The Weeping Hollow</a><br>
+					<a class="place-name" title="Defiled Crypt">Defiled Crypt</a><br>
+					<a class="place-name" title="Fields of Misery">
+					Fields of Misery</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Skeletal Archer">
+					Skeletal Archer</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cathedral Level 4">Cathedral Level 4</a><br>
+					<a class="place-name" title="The Royal Crypts">
+					The Royal Crypts</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Spiderling">
+					Spiderling</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cave of the Moon Clan Level 1">Cave of the Moon Clan Level 1</a><br>
+					<a class="place-name" title="Cave of the Moon Clan Level 2">Cave of the Moon Clan Level 2</a><br>
+					<a class="place-name" title="Caverns of Araneae">
+					Caverns of Araneae</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Unholy Thrall">
+					Unholy Thrall</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Leoric's Manor">Leoric's Manor</a><br>
+					<a class="place-name" title="Halls of Agony Level 1">
+					Halls of Agony Level 1</a>
+				</td></tr>
+
+			</tbody>
+		</table>
+
+		<label>Act II</label><br>
+		<table class="actII">
+			<thead>
+				<tr><th> Monster</th><th></th><th> Location</th></tr>
+			</thead>
+
+			<tbody>	
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Accursed">
+					Accursed</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Eastern Channel">Eastern Channel</a><br>
+					<a class="place-name" title="Desolate Sands">
+					Desolate Sands</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Bone Warrior">
+					Bone Warrior</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Howling Plateau">Howling Plateau</a><br>
+					<a class="place-name" title="Black Canyon Mines">Black Canyon Mines</a><br>
+					<a class="place-name" title="Sewers of Caldeum">Sewers of Caldeum</a><br>
+					<a class="place-name" title="Ruined Cistern">Ruined Cistern</a><br>
+					<a class="place-name" title="The Forgotten Ruins">The Forgotten Ruins</a><br>
+					<a class="place-name" title="Cave of the Betrayer Level 2">
+					Cave of the Betrayer Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Brood Hatchling">
+					Brood Hatchling</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cave of the Betrayer Level 1">Cave of the Betrayer Level 1</a><br>
+					<a class="place-name" title="Cave of the Betrayer Level 2">Cave of the Betrayer Level 2</a><br>
+					<a class="place-name" title="Vile Cavern Level 1">Vile Cavern Level 1</a><br>
+					<a class="place-name" title="Vile Cavern Level 2">Vile Cavern Level 2</a><br>
+					<a class="place-name" title="The Storm Halls">
+					The Storm Halls</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Chilling Construct">
+					Chilling Construct</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Ancient Cave Level 1">Ancient Cave Level 1</a><br>
+					<a class="place-name" title="The Unknown Depths">
+					The Unknown Depths</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Deathly Haunt">
+					Deathly Haunt</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Mysterious Cave">
+					Mysterious Cave</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Conjurer">
+					Fallen Conjurer</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Dahlgur Oasis">
+					Dahlgur Oasis</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Cur">
+					Fallen Cur</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Dahlgur Oasis"><del>Dahlgur Oasis</del></a><br>
+					<a class="place-name" title="Ancient Path"><del>Ancient Path</del></a><br>
+					<a class="place-name" title="The Storm Halls">
+					The Storm Halls</a> (Fallen theme)
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Overseer">
+					Fallen Overseer</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Howling Plateau">Howling Plateau</a><br>
+					<a class="place-name" title="Black Canyon Mines">Black Canyon Mines</a><br>
+					<a class="place-name" title="Stinging Winds">Stinging Winds</a><br>
+					<a class="place-name" title="Road to Alcarnus">
+					Road to Alcarnus</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Peon">
+					Fallen Peon</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Dahlgur Oasis">
+					Dahlgur Oasis</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen">
+					Fallen</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Sundered Canyon">Sundered Canyon</a><br>
+					<a class="place-name" title="Howling Plateau">Howling Plateau</a><br>
+					<a class="place-name" title="Black Canyon Mines">Black Canyon Mines</a><br>
+					<a class="place-name" title="Stinging Winds">Stinging Winds</a><br>
+					<a class="place-name" title="Road to Alcarnus">Road to Alcarnus</a><br>
+					<a class="place-name" title="Eastern Channel">Eastern Channel</a><br>
+					<a class="place-name" title="Hidden Aqueducts">
+					Hidden Aqueducts</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Grim Wraith">
+					Grim Wraith</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Realm of Shadow">
+					Realm of Shadow</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Lacuni Huntress">
+					Lacuni Huntress</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Sundered Canyon">Sundered Canyon</a><br>
+					<a class="place-name" title="Howling Plateau">Howling Plateau</a><br>
+					<a class="place-name" title="Black Canyon Mines">Black Canyon Mines</a><br>
+					<a class="place-name" title="Stinging Winds">
+					Stinging Winds</a><br>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Lacuni Slasher">
+					Lacuni Slasher</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Desolate Sands">
+					Desolate Sands</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Noxious Guardian">
+					Noxious Guardian</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Sewers of Caldeum">Sewers of Caldeum</a><br>
+					<a class="place-name" title="Ruined Cistern">
+					Ruined Cistern</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Reaper">
+					Reaper</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cave of Burrowing Horror Level 1">Cave of Burrowing Horror Level 1</a><br>
+					<a class="place-name" title="Cave of Burrowing Horror Level 2">
+					Cave of Burrowing Horror Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Rock Giant">
+					Rock Giant</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Storm Halls">The Storm Halls</a><br>
+					<a class="place-name" title="The Unknown Depths">
+					The Unknown Depths</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Sand Behemoth">
+					Sand Behemoth</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Realm of Shadow">Realm of Shadow</a><br>
+					<a class="place-name" title="The Unknown Depths">
+					The Unknown Depths</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Sand Wasp">
+					Sand Wasp</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Black Canyon Mines">Black Canyon Mines</a><br>
+					<a class="place-name" title="Howling Plateau">Howling Plateau</a><br>
+					<a class="place-name" title="Sundered Canyon">
+					Sundered Canyon</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Savage Flyer">
+					Savage Flyer</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Ancient Cave Level 1">Ancient Cave Level 1</a><br>
+					<a class="place-name" title="Ancient Cave Level 2">Ancient Cave Level 2</a><br>
+					<a class="place-name" title="Eastern Channel">Eastern Channel</a><br>
+					<a class="place-name" title="Flooded Cave">
+					Flooded Cave</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Savage Rockworm">
+					Savage Rockworm</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Sirocco Caverns Level 1">
+					Sirocco Caverns Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Shock Guardian">
+					Shock Guardian</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Forgotten Ruins">The Forgotten Ruins</a><br>
+					<a class="place-name" title="Vault of the Assassin">
+					Vault of the Assassin</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Skeletal Raider">
+					Skeletal Raider</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Vault of the Assassin">Vault of the Assassin</a><br>
+					<a class="place-name" title="The Unknown Depths">The Unknown Depths</a><br>
+					<a class="place-name" title="The Storm Halls">
+					The Storm Halls</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Skeletal Ranger">
+					Skeletal Ranger</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Sewers of Caldeum">Sewers of Caldeum</a><br>
+					<a class="place-name" title="Mysterious Cave Level 1">
+					Mysterious Cave Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Spine Hewer">
+					Spine Hewer</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Forgotten Ruins">
+					The Forgotten Ruins</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Vicious Ghoul">
+					Vicious Ghoul</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Sirocco Caverns Level 1">Sirocco Caverns Level 1</a><br>
+					<a class="place-name" title="Sirocco Caverns Level 2">
+					Sirocco Caverns Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Webspitter Spider">
+					Webspitter Spider</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cave of the Betrayer Level 1">Cave of the Betrayer Level 1</a><br>
+					<a class="place-name" title="Cave of the Betrayer Level 2">Cave of the Betrayer Level 2</a><br>
+					<a class="place-name" title="Vile Cavern Level 1">Vile Cavern Level 1</a><br>
+					<a class="place-name" title="Vile Cavern Level 2">
+					Vile Cavern Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Writhing Deceiver">
+					Writhing Deceiver</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="City of Caldeum">City of Caldeum</a><br>
+					<a class="place-name" title="Dahlgur Oasis">Dahlgur Oasis</a><br>
+					<a class="place-name" title="Imperial Palace">Imperial Palace</a><br>
+					<a class="place-name" title="Old Fisherman's Cellar">Old Fisherman's Cellar</a><br>
+					<a class="place-name" title="The Ruins Level 1">The Ruins Level 1</a><br>
+					<a class="place-name" title="The Ruins Level 2">
+					The Ruins Level 2</a>
+				</td></tr>
+
+			</tbody>
+		</table>
+
+		<label>Act III</label><br>
+		<table class="actIII">
+			<thead>
+				<tr><th> Monster</th><th></th><th> Location</th></tr>
+			</thead>
+
+			<tbody>	
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Blood Clan Impaler">
+					Blood Clan Impaler</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Arreat Crater Level 1">Arreat Crater Level 1</a><br>
+					<a class="place-name" title="Arreat Crater Level 2">Arreat Crater Level 2</a><br>
+					<a class="place-name" title="Tower of the Cursed Level 1">Tower of the Cursed Level 1</a><br>
+					<a class="place-name" title="Tower of the Cursed Level 2">
+					Tower of the Cursed Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Blood Clan Mauler">
+					Blood Clan Mauler</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Arreat Crater Level 1">Arreat Crater Level 1</a><br>
+					<a class="place-name" title="Tower of the Cursed Level 1">Tower of the Cursed Level 1</a><br>
+					<a class="place-name" title="Tower of the Cursed Level 2">
+					Tower of the Cursed Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Blood Clan Occultist">
+					Blood Clan Occultist</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Arreat Crater Level 2">Arreat Crater Level 2</a><br>
+					<a class="place-name" title="Tower of the Cursed Level 1">Tower of the Cursed Level 1</a><br>
+					<a class="place-name" title="Tower of the Cursed Level 2">
+					Tower of the Cursed Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Blood Clan Sorcerer">
+					Blood Clan Sorcerer</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Fields of Slaughter">Fields of Slaughter</a><br>
+					<a class="place-name" title="Rakkis Crossing">Rakkis Crossing</a><br>
+					<a class="place-name" title="The Underbridge">
+					The Underbridge</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Blood Clan Warrior">
+					Blood Clan Warrior</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Battlefields">The Battlefields</a><br>
+					<a class="place-name" title="The Bridge of Korsikk">The Bridge of Korsikk</a><br>
+					<a class="place-name" title="The Underbridge">The Underbridge</a><br>
+					<a class="place-name" title="Fields of Slaughter">Fields of Slaughter</a><br>
+					<a class="place-name" title="Rakkis Crossing">
+					Rakkis Crossing</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Dark Skeletal Bowman">
+					Dark Skeletal Bowman</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Breach">The Breach</a><br>
+					<a class="place-name" title="The Keep Depths Level 1">The Keep Depths Level 1</a><br>
+					<a class="place-name" title="The Keep Depths Level 2">The Keep Depths Level 2</a><br>
+					<a class="place-name" title="The Keep Depths Level 3">
+					The Keep Depths Level 3</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Demon Trooper">
+					Demon Trooper</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+					<a class="place-name" title="Stonefort">Stonefort</a><br>
+					<a class="place-name" title="The Keep Depths Level 1">
+					The Keep Depths Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Demonic Hellflyer">
+					Demonic Hellflyer</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+					<a class="place-name" title="Stonefort">Stonefort</a><br>
+					<a class="place-name" title="The Barracks Level 1">The Barracks Level 1</a><br>
+					<a class="place-name" title="The Battlefields">The Battlefields</a><br>
+					<a class="place-name" title="Rakkis Crossing">
+					Rakkis Crossing</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Demonic Tremor">
+					Demonic Tremor</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Fortified Bunker">Fortified Bunker</a><br>
+					<a class="place-name" title="The Keep Depths Level 2">The Keep Depths Level 2</a><br>
+					<a class="place-name" title="The Keep Depths Level 3">The Keep Depths Level 3</a><br>
+					<a class="place-name" title="The Battlefields">The Battlefields</a><br>
+					<a class="place-name" title="Fields of Slaughter">
+					Fields of Slaughter</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Grunt">
+					Fallen Grunt</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+					<a class="place-name" title="Stonefort">Stonefort</a><br>
+					<a class="place-name" title="The Barracks Level 1">The Barracks Level 1</a><br>
+					<a class="place-name" title="The Barracks Level 2">The Barracks Level 2</a><br>
+					<a class="place-name" title="The Forward Barracks">
+					The Forward Barracks</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Hellhound">
+					Fallen Hellhound</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+					<a class="place-name" title="Tower of the Damned Level 1">
+					Tower of the Damned Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Mongrel">
+					Fallen Mongrel</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+					<a class="place-name" title="Stonefort">Stonefort</a><br>
+					<a class="place-name" title="The Barracks Level 1">The Barracks Level 1</a><br>
+					<a class="place-name" title="The Barracks Level 2">The Barracks Level 2</a><br>
+					<a class="place-name" title="The Forward Barracks">
+					The Forward Barracks</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Overlord">
+					Fallen Overlord</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+					<a class="place-name" title="Stonefort">Stonefort</a><br>
+					<a class="place-name" title="The Barracks Level 1">The Barracks Level 1</a><br>
+					<a class="place-name" title="The Barracks Level 2">The Barracks Level 2</a><br>
+					<a class="place-name" title="The Forward Barracks">
+					The Forward Barracks</a>
+				</td></tr>
+
+				<tr>
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Slavelord">
+					Fallen Slavelord</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+					<a class="place-name" title="Rakkis Crossing">
+					Rakkis Crossing</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Fallen Soldier">
+					Fallen Soldier</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Skycrown Battlements">Skycrown Battlements</a><br>
+					<a class="place-name" title="Rakkis Crossing">Rakkis Crossing</a><br>
+					<a class="place-name" title="Bridge Stores">Bridge Stores</a><br>
+					<a class="place-name" title="Edge of the Abyss">Edge of the Abyss</a><br>
+					<a class="place-name" title="Arreat Crater Level 1">
+					Arreat Crater Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Herald of Pestilence">
+					Herald of Pestilence</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Arreat Gate">The Arreat Gate</a><br>
+					<a class="place-name" title="The Battlefields">The Battlefields</a><br>
+					<a class="place-name" title="The Bridge of Korsikk">The Bridge of Korsikk</a><br>
+					<a class="place-name" title="Fields of Slaughter">Fields of Slaughter</a><br>
+					<a class="place-name" title="Rakkis Crossing">Rakkis Crossing</a><br>
+					<a class="place-name" title="Arreat Crater Level 1">
+					Arreat Crater Level 1</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Hulking Phasebeast">
+					Hulking Phasebeast</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Arreat Crater Level 2">
+					Arreat Crater Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Icy Quillback">
+					Icy Quillback</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Caverns of Frost Level 1">Caverns of Frost Level 1</a><br>
+					<a class="place-name" title="Caverns of Frost Level 2">Caverns of Frost Level 2</a><br>
+					<a class="place-name" title="The Breach">The Breach</a><br>
+					<a class="place-name" title="The Keep Depths Level 1">The Keep Depths Level 1</a><br>
+					<a class="place-name" title="The Keep Depths Level 2">The Keep Depths Level 2</a><br>
+					<a class="place-name" title="The Keep Depths Level 3">
+					The Keep Depths Level 3</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Plague Swarm">
+					Plague Swarm</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Cryder's Outpost">
+					Cryder's Outpost</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Skeletal Marauder">
+					Skeletal Marauder</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Battlefield Stores">
+					Battlefield Stores</a>
+				</td></tr>
+
+				<tr  class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Skull Cleaver">
+					Skull Cleaver</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Battlefield Stores">
+					Battlefield Stores</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Soul Ripper">
+					Soul Ripper</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Keep Depths Level 1">The Keep Depths Level 1</a><br>
+					<a class="place-name" title="The Keep Depths Level 2">The Keep Depths Level 2</a><br>
+					<a class="place-name" title="The Breach">
+					The Breach</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Stygian Crawler">
+					Stygian Crawler</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Arreat Crater Level 1">Arreat Crater Level 1</a><br>
+					<a class="place-name" title="Arreat Crater Level 2">Arreat Crater Level 2</a><br>
+					<a class="place-name" title="The Core of Arreat">
+					The Core of Arreat</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Succubus">
+					Succubus</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Arreat Crater Level 2">Arreat Crater Level 2</a><br>
+					<a class="place-name" title="The Core of Arreat">
+					The Core of Arreat</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Wintersbane Huntress">
+					Wintersbane Huntress</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Caverns of Frost Level 1">Caverns of Frost Level 1</a><br>
+					<a class="place-name" title="Caverns of Frost Level 2">
+					Caverns of Frost Level 2</a>
+				</td></tr>
+
+			</tbody>
+		</table>
+
+		<label>Act IV</label><br>
+		<table class="actIV">
+			<thead>
+				<tr><th> Monster</th><th></th><th> Location</th></tr>
+			</thead>
+
+			<tbody>	
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Armored Destroyer">
+					Armored Destroyer</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Gardens of Hope 1st Tier"> Gardens of Hope 1st Tier</a><br>
+					<a class="place-name" title="The Silver Spire Level 2">
+					The Silver Spire Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Darksky Fire Demon">
+					Darksky Fire Demon</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Gardens of Hope 2nd Tier">
+					Gardens of Hope 2nd Tier</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Enslaved Nightmare">
+					Enslaved Nightmare</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Silver Spire Level 2">
+					The Silver Spire Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Mallet Lord">
+					Mallet Lord</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Silver Spire Level 1">The Silver Spire Level 1</a><br>
+					<a class="place-name" title="The Silver Spire Level 2">
+					The Silver Spire Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Morlu Incinerator">
+					Morlu Incinerator</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Silver Spire Level 1">The Silver Spire Level 1</a><br>
+					<a class="place-name" title="The Silver Spire Level 2">
+					The Silver Spire Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Morlu Legionnaire">
+					Morlu Legionnaire</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="The Silver Spire Level 1">The Silver Spire Level 1</a><br>
+					<a class="place-name" title="The Silver Spire Level 2">
+					The Silver Spire Level 2</a>
+				</td></tr>
+
+				<tr class="done">
+				<td class="enemy">
+					<a class="enemy-name" onclick="toggle_objective(this);" title="Subjugator">
+					Subjugator</a>
+				</td>
+				<td class="enemy-links">JS filled</td>
+				<td> <a class="place-name" title="Gardens of Hope 1st Tier">Gardens of Hope 1st Tier</a><br>
+					<a class="place-name" title="Hell Rift">Hell Rift</a><br>
+					<a class="place-name" title="Gardens of Hope 2nd Tier">Gardens of Hope 2nd Tier</a><br>
+					<a class="place-name" title="The Silver Spire Level 1">
+					The Silver Spire Level 1</a>
+				</td></tr>
+			</tbody>
+		</table>
+	</div><!-- we are the champions -->
+
+	<script type="text/javascript">
+		function toggle_act(checkbox) {
+    		var visible_t = checkbox.name;
+    		var hidden_t = checkbox.name + '-hidden';
+			if(checkbox.checked) {
+    			/* checked */ 
+    			var searchClass = hidden_t;
+    			var applyClass = visible_t;
+    		} else { 
+    			/* un-checked */
+    			var searchClass = visible_t;
+    			var applyClass = hidden_t;
+    		}
+
+			var nodeList = document.getElementsByClassName(searchClass);
+    		var nodeArray = [].slice.call(nodeList);
+    		nodeArray.forEach( function(value) {
+    				value.className = applyClass;
+				} );
+    	}
+
+    	function toggle_objective(a_node) {
+    		var row = a_node.parentNode.parentNode;
+
+    		var isObjectiveDone = row.className == "done";
+    		if(isObjectiveDone) {
+    				row.className = "";
+    		} else {
+	    			row.className = "done";
+	    	}
+    	}
+
+    	function mark_all(all_done) {
+    		var applyClass = all_done ? "done" : "";
+
+    		var nodeList = document.getElementsByTagName("TR");
+    		var nodeArray = [].slice.call(nodeList);
+    		nodeArray.forEach( function(value) {
+    				value.className = applyClass;
+				} );
+    	}
+
+    	function toggle_difficulty(checkbox) {
+    		var visible_dif = checkbox.name;
+    		var hidden_dif = checkbox.name + '-hidden';
+
+    		if(checkbox.checked) {
+    			/* checked */ 
+    			var searchClass = hidden_dif;
+    			var applyClass = visible_dif;
+    		} else { 
+    			/* un-checked */
+    			var searchClass = visible_dif;
+    			var applyClass = hidden_dif;
+    		}
+    		applyClass += " achievement";
+
+    		var nodeList = document.getElementsByClassName(searchClass);
+    		var nodeArray = [].slice.call(nodeList);
+    		nodeArray.forEach( function(value) {
+    				value.className = applyClass;
+				} );	
+    	}
+
+    	/**
+    	 * Generate and insert the Google and D3DB links for each enemy.
+    	 */
+		var searchClass = "enemy-links";
+		var nodeList = document.getElementsByClassName(searchClass);
+		var nodeArray = [].slice.call(nodeList);
+		nodeArray.forEach( function(value) {
+				var td = value;
+
+				if (td.nodeName != "TD") {
+					console.log("error: " + td);
+					return;
+				}
+				td.innerHTML = ""; /* clear it */
+
+				var tr = td.parentNode;
+				var enemy = tr.getElementsByClassName("enemy-name")[0];
+
+				/* google search */
+				var a = document.createElement("a");
+				a.className = "google_link";
+				a.innerHTML = "g";
+				a.title = 'google ' + enemy.title;
+				a.href = "http://www.google.com/search?q=diablo+3 " + enemy.title;
+				a.target = "_blank";
+				td.appendChild(a);
+
+				/* d3db search */
+				var a = document.createElement("a");
+				a.className = "d3db_link";
+				a.innerHTML = "d3db";
+				a.title = 'd3db ' + enemy.title;
+				a.href = "http://d3db.com/search?q=" + enemy.title;
+				a.target = "_blank";
+				td.appendChild(a);
+			} 
+		);
+	</script>
+</body>
+</html>
