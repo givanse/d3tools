@@ -10,4 +10,4 @@ Quickly check who should you be looking for in each area of the game.
  * Use the checkboxes at the top to hide or un-hide different sections.
 
 ## Source code
-The code has to be in a single file and it is long. If you want to directly edit the HTML/Javascript I recommend that you use [Sublime Text](http://www.sublimetext.com/).
+The code has to be in a single file and it is long. If you want to directly edit the HTML/Javascript I recommend that you use the editor [Sublime Text](http://www.sublimetext.com/) or an advanced editor like VIM.
