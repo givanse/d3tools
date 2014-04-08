@@ -18,6 +18,30 @@
     </ul>
 
     {{outlet}}
+
+  </script>
+
+  <script type="text/x-handlebars" id="career_profile">
+      {{input type="text" placeholder="Battletag name" size=12 
+      name="battletag_code" valueBinding="App.user.battletag_name"}}
+      {{input type="text" placeholder="0000" size=4 
+      name="battletag_code" valueBinding="App.user.battletag_code"}}
+      <br>
+      Last update: {{App.user.careerProfile.lastUpdatedDate}}
+      <br>
+
+      {{App.user.careerProfile.battleTag}}
+      <select id="select_heroe">
+          {{#each heroe in App.user.careerProfile.heroes}}
+              <option value="{{heroe.id}}">{{heroe.name}}</option>
+          {{/each}}
+      </select>
+      <br><br>
+
+      APS: {{input type="text" placeholder="0.00" size="1" 
+                   name="mh_aps" valueBinding="App.user.careerProfile.mh_aps"}}
+      APS: {{input type="text" placeholder="0.00" size="1" 
+                   name="mh_aps" valueBinding="App.user.careerProfile.oh_aps"}}
   </script>
 
   <script type="text/x-handlebars" id="hunt">
@@ -26,6 +50,9 @@
   </script>
 
   <script type="text/x-handlebars" id="rltw">
+
+    {{view App.CareerProfileView}}
+
     <h2>RLTW</h2>
     Tornado proc: 0.0056<br>
 
@@ -61,15 +88,31 @@
 
   </script>
 
-  <script type="text/x-handlebars" id="weaponChart">
-  </script>
-
   <script type="text/x-handlebars" id="glosary">
-    Tick: An event in the game that checks for: hits on enemies, item and skill activation of effects and costs of skills.<br>
-    Hit: A tick that does hit (damage) on enemies.<br>
-    APS: Attacks Per Second.<br>
-    IAS: Increased Attack Speed.<br>
-    Proc: Programming term that indicates how often an event can occur, where 0 is never and 1 is always.
+    <table class="glosary">
+      <tbody>
+        <tr>
+          <td>APS</td>
+          <td>Attacks Per Second.</td>
+        </tr>
+        <tr>
+          <td>Hit</td>
+          <td>A tick that does hit (damage) on enemies.</td>
+        </tr>
+        <tr>  
+          <td>IAS</td>
+          <td>Increased Attack Speed.</td>
+        </tr>
+        <tr>
+          <td>Proc</td>
+          <td>Programming term that indicates how often an event can occur, where 0 is never and 1 is always.</td>
+        </tr>
+        <tr>
+          <td>Tick</td>
+          <td>An event in the game that checks for: hits on enemies, item and skill activation of effects and costs of skills.</td>
+        </tr>
+      </tbody>
+    </table>
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
@@ -79,5 +122,6 @@
   <script src="js/app.js"></script>
   <!-- to activate the test runner, add the "?test" query string parameter -->
   <script src="tests/runner.js"></script>
+
 </body>
 </html>

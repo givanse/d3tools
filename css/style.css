@@ -3,10 +3,23 @@
     margin: 20px;
 }
 
-.breakpoints td {
+/* Breakpoints */
+table.breakpoints td {
 	text-align: center;
 }
 
-.breakpoints tr:nth-child(odd) {
-	background-color: #e0e0e0;
+table.breakpoints tr:nth-child(odd) {
+	background-color: #c4c4c4;
+}
+
+/* Glosary */
+table.glosary td:nth-child(1) {
+	padding-right: 4px;
+}
+
+table.glosary tr:nth-child(odd) {
+	background-color: #b2cdff;
+}
+table.glosary tr:nth-child(even) {
+	background-color: #ffffa1;
 }
