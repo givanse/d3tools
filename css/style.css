@@ -4,22 +4,34 @@
 }
 
 /* Breakpoints */
+div.table_breakpoint_wrap {
+    display: inline-block;
+}
 table.breakpoints td {
-	text-align: center;
+    text-align: center;
 }
 
 table.breakpoints tr:nth-child(odd) {
-	background-color: #c4c4c4;
+    background-color: #D6D6D6;
+}
+
+table.breakpoints tr.is-active {
+    background-color: #2FF747;
 }
 
 /* Glosary */
 table.glosary td:nth-child(1) {
-	padding-right: 4px;
+    padding-right: 4px;
 }
 
 table.glosary tr:nth-child(odd) {
-	background-color: #b2cdff;
+    background-color: #b2cdff;
 }
 table.glosary tr:nth-child(even) {
-	background-color: #ffffa1;
+    background-color: #ffffa1;
+}
+
+.ember-view {
+    border: #000000 solid 1px;
+    margin: 8px;
 }

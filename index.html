@@ -8,7 +8,7 @@
 </head>
 <body>
 
-  <script type="text/x-handlebars">
+<script type="text/x-handlebars">
     <h1>D3 Tools</h1>
 
     <ul>
@@ -17,103 +17,120 @@
         <li>{{#link-to 'ww'   }} Whirlwind {{/link-to}}</li>
     </ul>
 
+    {{model.battleTag}}
+    {{App.user.careerProfile.battleTag}}
+
     {{outlet}}
 
-  </script>
+</script>
 
-  <script type="text/x-handlebars" id="career_profile">
-      {{input type="text" placeholder="Battletag name" size=12 
-      name="battletag_code" valueBinding="App.user.battletag_name"}}
-      {{input type="text" placeholder="0000" size=4 
-      name="battletag_code" valueBinding="App.user.battletag_code"}}
-      <br>
-      Last update: {{App.user.careerProfile.lastUpdatedDate}}
-      <br>
+<script type="text/x-handlebars" id="career_profile">
+    {{input type="text" placeholder="Battletag name" size=12 
+    name="battletag_code" valueBinding="App.user.battletag_name"}}
+    {{input type="text" placeholder="0000" size=4 
+    name="battletag_code" valueBinding="App.user.battletag_code"}}
+    <br>
+    Last update: {{App.user.careerProfile.lastUpdatedDate}}
+    <br>
 
-      {{App.user.careerProfile.battleTag}}
-      <select id="select_heroe">
-          {{#each heroe in App.user.careerProfile.heroes}}
-              <option value="{{heroe.id}}">{{heroe.name}}</option>
-          {{/each}}
-      </select>
-      <br><br>
+    {{App.user.careerProfile.battleTag}}
+    <select id="select_heroe">
+        {{#each heroe in App.user.careerProfile.heroes}}
+            <option value="{{heroe.id}}">{{heroe.name}}</option>
+        {{/each}}
+    </select>
+    <br>
+    APS: <label>{{bind "App.user.careerProfile.mh_aps"}}</label>
+    APS: <label>{{bind "App.user.careerProfile.oh_aps"}}</label>
+</script>
 
-      APS: {{input type="text" placeholder="0.00" size="1" 
-                   name="mh_aps" valueBinding="App.user.careerProfile.mh_aps"}}
-      APS: {{input type="text" placeholder="0.00" size="1" 
-                   name="mh_aps" valueBinding="App.user.careerProfile.oh_aps"}}
-  </script>
-
-  <script type="text/x-handlebars" id="hunt">
+<script type="text/x-handlebars" id="hunt">
     <h2>Hunt</h2>
+</script>
 
-  </script>
-
-  <script type="text/x-handlebars" id="rltw">
+<script type="text/x-handlebars" id="rltw">
+    <h2>RLTW</h2>
 
     {{view App.CareerProfileView}}
 
-    <h2>RLTW</h2>
     Tornado proc: 0.0056<br>
 
-    Main Hand
-    <table class="breakpoints">
-      <thead>
-        <tr>
-          <th>APS</th>
-          <th>FPT</th>
-          <th>TPS</th>
-          <th>3 Secs.</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each row in model}}
-          <tr>
-            <td>{{row.aps}}</td>
-            <td>{{row.fpt}}</td>
-            <td>{{row.tps}}</td>
-            <td>{{row.tticks}}</td>
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
+    {{view App.TableBreakpointView contentBinding="this" 
+                                                         header="Main hand"
+                                                         user_aps=App.user.careerProfile.mh_aps}}
 
-    Off Hand
+    {{view App.TableBreakpointView contentBinding="this" 
+                                                         header="Off hand"
+                                                         user_aps=App.user.careerProfile.oh_aps}}
 
     {{view App.GlosaryView}}
-  </script>
+</script>
 
-  <script type="text/x-handlebars" id="ww">
-    <h2>WW</h2>
+<script type="text/x-handlebars" id="table_breakpoint">
+    <h3>{{view.header}}</h3>
+    <table class="breakpoints">
+    <thead>
+      <tr>
+        <th>APS</th>
+        <th>FPT</th>
+        <th>TPS</th>
+        <th>T / 3 sec</th>
+      </tr>
+    </thead>
+    <tbody>
+        {{#each model}}
+            {{view App.TrBreakpointView contentBinding="this" 
+                                                            user_aps=view.user_aps}}
+        {{/each}}
+    </tbody>
+    </table>
+</script>      
 
-  </script>
+<script type="text/x-handlebars" id="tr_breakpoint">
+    <td>{{aps}}</td>
+    <td>{{fpt}}</td>
+    <td>{{tps}}</td>
+    <td>{{t_ticks}}</td>
+</script>
+
+<script type="text/x-handlebars" id="ww">
+  <h2>WW</h2>
+</script>
 
   <script type="text/x-handlebars" id="glosary">
-    <table class="glosary">
-      <tbody>
-        <tr>
-          <td>APS</td>
-          <td>Attacks Per Second.</td>
-        </tr>
-        <tr>
-          <td>Hit</td>
-          <td>A tick that does hit (damage) on enemies.</td>
-        </tr>
-        <tr>  
-          <td>IAS</td>
-          <td>Increased Attack Speed.</td>
-        </tr>
-        <tr>
-          <td>Proc</td>
-          <td>Programming term that indicates how often an event can occur, where 0 is never and 1 is always.</td>
-        </tr>
-        <tr>
-          <td>Tick</td>
-          <td>An event in the game that checks for: hits on enemies, item and skill activation of effects and costs of skills.</td>
-        </tr>
-      </tbody>
-    </table>
-  </script>
+      <table class="glosary">
+        <tbody>
+            <tr>
+              <td>APS</td>
+              <td>Attacks Per Second.</td>
+            </tr>
+            <tr>
+              <td>FPT</td>
+              <td>Frames per Tick</td>
+            </tr>
+            <tr>
+              <td>Hit</td>
+              <td>A tick that does hit (damage) on enemies.</td>
+            </tr>
+            <tr>  
+              <td>IAS</td>
+              <td>Increased Attack Speed.</td>
+            </tr>
+            <tr>
+              <td>Proc</td>
+              <td>Programming term that indicates how often an event can occur, where 0 is never and 1 is always.</td>
+            </tr>
+            <tr>
+              <td>Tick</td>
+              <td>An event in the game that checks for: hits on enemies, item and skill activation of effects and costs of skills.</td>
+            </tr>
+            <tr>
+              <td>TPS</td>
+              <td>Ticks per Second</td>
+            </tr>
+        </tbody>
+      </table>
+</script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
   <script src="js/libs/jquery-1.10.2.js"></script>
